@@ -2,7 +2,7 @@
     description = "nixos";
 
     inputs = {
-        nixpkgs.url = "nixpkhs/nixos-23.05";
+        nixpkgs.url = "nixpkgs/nixos-25.05";
     };
 
     outputs = { self, nixpkgs, ... }:
