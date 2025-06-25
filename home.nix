@@ -15,6 +15,7 @@
         "cls" = "nu";
         "rebuild" = "sudo nixos-rebuild switch --flake ~/dot";
         "update" = "nix flake update --flake ~/dot";
+        "dev" = "nix-shell --command 'nu'";
       };
       settings = {
         show_banner = false;
@@ -25,7 +26,7 @@
       };
       extraConfig = ''
         # startup
-        fastfetch
+        # fastfetch
       '';
     };
     carapace = {
