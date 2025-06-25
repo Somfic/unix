@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports =
+    [ ./hardware-configuration.nix inputs.home-manager.nixosModules.default ];
 
   # system packages
   environment.systemPackages = with pkgs; [ neovim wget curl git nixfmt ];
@@ -11,9 +12,19 @@
     isNormalUser = true;
     description = "lucas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ discord spotify vscode gh nushell google-chrome ];
+    packages = with pkgs; [
+      discord
+      spotify
+      vscode
+      gh
+      nushell
+      google-chrome
+      firefox
+    ];
     shell = pkgs.nushell;
   };
+
+  # homemanager
 
   # bootloader
   boot.loader.systemd-boot.enable = true;
