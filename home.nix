@@ -13,7 +13,7 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild" = "sudo nixos-rebuild switch - -flake ~/dot";
+        "rebuild" = "sudo nixos-rebuild switch --flake ~/dot";
         "update" = "nix flake update --flake ~/dot";
       };
       settings = {
