@@ -12,8 +12,8 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild" = "sudo nixos-rebuild switch --flake ~/dot";
-        "update" = "nix flake update";
+        "update" = "nix flake update --flake ~/dot";
+        "rebuild" = "nh os switch ~/dot/";
       };
       settings = {
         show_banner = false;
@@ -23,7 +23,7 @@
         };
       };
       extraConfig = ''
-        clear
+        # startup
         fastfetch
       '';
     };
@@ -40,6 +40,12 @@
       enableNushellIntegration = true;
     };
     fastfetch = { enable = true; };
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/lucas/dot/flake.nix";
+    };
   };
 
   home.username = "lucas";
