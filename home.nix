@@ -2,6 +2,7 @@
 
 {
   programs = {
+    home-manager = { enable = true; };
     nushell = {
       enable = true;
       shellAliases = {
@@ -12,8 +13,8 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
+        "rebuild" = "nh os switch ~/dot#nixos";
         "update" = "nix flake update --flake ~/dot";
-        "rebuild" = "nh os switch ~/dot/";
       };
       settings = {
         show_banner = false;
@@ -46,6 +47,13 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/lucas/dot/flake.nix";
     };
+    git = {
+      enable = true;
+      userEmail = "lucas@somfic.dev";
+      userName = "Lucas";
+    };
+    gh = { enable = true; };
+    vscode = { enable = true; };
   };
 
   home.username = "lucas";
@@ -58,5 +66,6 @@
 
   home.sessionVariables = { };
 
-  programs.home-manager.enable = true;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = _: true;
 }

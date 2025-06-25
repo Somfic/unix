@@ -1,18 +1,18 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
     [ ./hardware-configuration.nix inputs.home-manager.nixosModules.default ];
 
   # system packages
-  environment.systemPackages = with pkgs; [ neovim wget curl git nixfmt ];
+  environment.systemPackages = with pkgs; [ neovim wget curl nixfmt ];
 
   # user accounts
   users.users.lucas = {
     isNormalUser = true;
     description = "lucas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ discord spotify vscode gh google-chrome firefox ];
+    packages = with pkgs; [ discord spotify google-chrome firefox ];
     shell = pkgs.nushell;
   };
 
