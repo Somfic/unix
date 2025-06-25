@@ -22,6 +22,11 @@
     users.lucas = import ./home.nix;
   };
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -77,4 +82,10 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "25.05";
+
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
 }

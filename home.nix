@@ -13,7 +13,7 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild" = "nh os switch ~/dot#nixos";
+        "rebuild" = "sudo nixos-rebuild switch - -flake ~/dot";
         "update" = "nix flake update --flake ~/dot";
       };
       settings = {
@@ -54,7 +54,10 @@
     };
     gh = { enable = true; };
     vscode = { enable = true; };
+    kitty = { enable = true; };
   };
+
+  wayland.windowManager.hyprland.enable = true;
 
   home.username = "lucas";
   home.homeDirectory = "/home/lucas";
