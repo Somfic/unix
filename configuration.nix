@@ -25,6 +25,10 @@
   };
 
   # homemanager
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users.lucas = import ./home.nix;
+  };
 
   # bootloader
   boot.loader.systemd-boot.enable = true;
