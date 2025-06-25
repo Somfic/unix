@@ -10,6 +10,8 @@
         ".." = "z ..";
         "g" = "git";
         "ll" = "ls -l";
+        "clear" = "nu";
+        "cls" = "nu";
         "rebuild" = "sudo nixos-rebuild switch --flake ~/dot";
         "update" = "nix flake update";
       };
