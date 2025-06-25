@@ -18,7 +18,7 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
+          inherit system;
           modules =
             [ ./configuration.nix inputs.home-manager.nixosModules.default ];
         };

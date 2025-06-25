@@ -12,15 +12,7 @@
     isNormalUser = true;
     description = "lucas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      discord
-      spotify
-      vscode
-      gh
-      nushell
-      google-chrome
-      firefox
-    ];
+    packages = with pkgs; [ discord spotify vscode gh google-chrome firefox ];
     shell = pkgs.nushell;
   };
 

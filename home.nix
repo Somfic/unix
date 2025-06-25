@@ -1,6 +1,17 @@
 { config, pkgs, ... }:
 
 {
+  # shell
+  programs.nushell = {
+    enable = true;
+    shellAliases = {
+      g = "git";
+      ll = "ls -l";
+      rebuild = "sudo nixos-rebuild switch --flake ~/dot";
+      update = "nix flake update";
+    };
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "lucas";
