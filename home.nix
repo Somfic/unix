@@ -1,18 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  # shell
   programs = {
     nushell = {
       enable = true;
       shellAliases = {
-        cd = "z";
+        "cd" = "z";
         "cd.." = "z ..";
         ".." = "z ..";
-        g = "git";
-        ll = "ls -l";
-        rebuild = "sudo nixos-rebuild switch --flake ~/dot";
-        update = "nix flake update";
+        "g" = "git";
+        "ll" = "ls -l";
+        "rebuild" = "sudo nixos-rebuild switch --flake ~/dot";
+        "update" = "nix flake update";
       };
       settings = {
         show_banner = false;
