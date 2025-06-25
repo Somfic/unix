@@ -57,7 +57,10 @@
     kitty = { enable = true; };
   };
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = { };
+  };
 
   home.username = "lucas";
   home.homeDirectory = "/home/lucas";
