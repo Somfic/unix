@@ -69,7 +69,7 @@
     };
     waybar = { enable = true; };
     rofi = { enable = true; };
-
+    direnv = { enable = true; };
   };
 
   wayland.windowManager.hyprland = {
