@@ -35,13 +35,19 @@
   # hostname  
   networking.hostName = "nixos";
 
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    # withUWSM = true;
-    xwayland.enable = true;
+  programs = {
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      # withUWSM = true;
+      xwayland.enable = true;
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamemode = { enable = true; };
   };
-  services.displayManager.gdm.enable = true;
 
   # networking 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -66,7 +72,9 @@
 
   # desktop environment
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.xkb = {
     layout = "us";
@@ -106,8 +114,14 @@
   system.stateVersion = "25.05";
 
   hardware = {
-    opengl.enable = true;
-    nvidia.modesetting.enable = true;
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      open = false;
+    };
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+    };
   };
-
 }
