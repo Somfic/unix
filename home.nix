@@ -13,7 +13,8 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild" = "sudo nixos-rebuild switch --flake ~/dot"; # todo: add nom support?
+        "rebuild" =
+          "sudo nixos-rebuild switch --flake ~/dot"; # todo: add nom support?
         "update" = "nix flake update --flake ~/dot";
         "dev" = "nix-shell --command 'nu'";
       };
@@ -60,6 +61,11 @@
 
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
+    cursor = {
+      inactive_timeout = 0;
+      no_hardware_cursors = true;
+      hide_on_key_press = true;
+    };
     bind = [ "$mod, F, exec, firefox" ", Print, exec, grimblast copy area" ]
       ++ (
         # workspaces
