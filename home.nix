@@ -160,6 +160,7 @@
     jetbrains.idea-ultimate
     obs-studio
     steam
+    mprocs # running multiple processes
   ];
 
   home.file = { };
