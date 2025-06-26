@@ -159,6 +159,7 @@
     firefox
     jetbrains.idea-ultimate
     obs-studio
+    steam
   ];
 
   home.file = { };
