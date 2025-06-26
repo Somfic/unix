@@ -143,7 +143,7 @@
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]) 9));
 
-      exec-once = [ "kitty & waybar & swww img ~/Wallpapers/1.jpg" ];
+      exec-once = [ "kitty & waybar & swww img ~/Wallpapers/neon3.jpg" ];
     };
 
   };
