@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   programs = {
@@ -61,6 +61,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    xwayland.enable = true;
     settings = {
       "$mod" = "SUPER";
       cursor = {
@@ -68,6 +70,11 @@
         no_hardware_cursors = true;
         hide_on_key_press = false;
       };
+      monitor = [
+        "default, 1920x1080@60, 0x0, 1"
+        "DP-2, preferred, auto-right, 1"
+        "DP-3, preferred, auto-left, 1"
+      ];
       bind = [
         "$mod, F, exec, firefox"
         "$mod, Q, exec, kitty"
