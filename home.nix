@@ -15,8 +15,8 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild-debug" = "sudo nixos-rebuild switch --flake ~/dot";
-        "rebuild" = " nh os switch ~/dot";
+        "reload-debug" = "sudo nixos-rebuild switch --flake ~/dot";
+        "reload" = "nh os switch ~/dot";
         "update" = "sudo nix flake update --flake ~/dot";
         "clean" = "nh clean all --keep-since 7d";
         "dev" = "nix-shell --command 'nu'";
