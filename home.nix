@@ -111,6 +111,7 @@
       bind = [
         "$mod, R, exec, rofi -show drun -show-icons"
         "$mod, F, exec, firefox"
+        "$mod, C, exec, code"
         "$mod, T, exec, kitty"
         "$mod, J, togglesplit,"
         "$mod, M, exit"
