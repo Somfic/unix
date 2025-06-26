@@ -17,7 +17,7 @@
         "cls" = "nu";
         "rebuild" =
           "sudo nixos-rebuild switch --flake ~/dot"; # todo: add nom support?
-        "update" = "nix flake update --flake ~/dot";
+        "update" = "sudo nix flake update --flake ~/dot";
         "dev" = "nix-shell --command 'nu'";
       };
       settings = {
@@ -88,6 +88,7 @@
         "DP-2, preferred, auto-right, 1"
         "DP-3, preferred, auto-left, 1"
       ];
+      general = { "col.active_border" = "0x00ff00"; };
       decoration = {
         rounding = 6;
         blur = {
@@ -107,11 +108,11 @@
       };
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
       bind = [
-        "$mod, F, exec, firefox"
-        "$mod, Q, exec, kitty"
         "$mod, R, exec, rofi -show drun -show-icons"
-        "$mod, M, exit"
+        "$mod, F, exec, firefox"
+        "$mod, T, exec, kitty"
         "$mod, J, togglesplit,"
+        "$mod, M, exit"
 
         # moving focus
         "$mod, left, movefocus, l"
@@ -127,7 +128,7 @@
 
         # closing windows
         "$mod, mouse:274, killactive"
-        "$mod, X, killactive"
+        "$mod, Q, killactive"
 
         ", Print, exec, grimblast copy area"
       ] ++ (
@@ -149,7 +150,7 @@
   home.homeDirectory = "/home/lucas";
   home.stateVersion = "25.05";
 
-  home.packages = [ ];
+  home.packages = [ pkgs.jetbrains.idea-ultimate ];
 
   home.file = { };
 
