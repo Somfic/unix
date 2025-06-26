@@ -1,6 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
+  services = { swww = { enable = true; }; };
+
   programs = {
     home-manager = { enable = true; };
     nushell = {
@@ -27,7 +29,8 @@
       };
       extraConfig = ''
         # startup
-        # fastfetch
+        clear
+        fastfetch
       '';
     };
     carapace = {
@@ -56,9 +59,17 @@
     };
     gh = { enable = true; };
     vscode = { enable = true; };
-    kitty = { enable = true; };
+    kitty = {
+      enable = true;
+      settings = {
+        background_opacity = 0.5;
+        window_padding_width = 10;
+        font_family = "Fira Code";
+      };
+    };
     waybar = { enable = true; };
     rofi = { enable = true; };
+
   };
 
   wayland.windowManager.hyprland = {
@@ -82,8 +93,11 @@
         blur = {
           size = 8;
           passes = 3;
+          brightness = 0.6;
+          vibrancy = 0.7;
+          noise = 0.1;
           new_optimizations = true;
-          ignore_opacity = false;
+          ignore_opacity = true;
         };
         shadow = {
           enabled = true;
@@ -95,7 +109,7 @@
       bind = [
         "$mod, F, exec, firefox"
         "$mod, Q, exec, kitty"
-        "$mod, R, exec, rofi -show drun"
+        "$mod, R, exec, rofi -show drun -show-icons"
         "$mod, M, exit"
         "$mod, J, togglesplit,"
 
@@ -126,7 +140,7 @@
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]) 9));
 
-      exec-once = [ "kitty & waybar" ];
+      exec-once = [ "kitty & waybar & swww img ~/Wallpapers/1.jpg" ];
     };
 
   };

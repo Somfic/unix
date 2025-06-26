@@ -63,6 +63,19 @@
   # printing
   services.printing.enable = true;
 
+  # fonts
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+
   # sound
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
