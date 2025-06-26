@@ -13,7 +13,7 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild" = "sudo nixos-rebuild switch --flake ~/dot";
+        "rebuild" = "sudo nixos-rebuild switch --flake ~/dot"; # todo: add nom support?
         "update" = "nix flake update --flake ~/dot";
         "dev" = "nix-shell --command 'nu'";
       };
