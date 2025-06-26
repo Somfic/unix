@@ -35,6 +35,14 @@
   # hostname  
   networking.hostName = "nixos";
 
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
+  services.displayManager.gdm.enable = true;
+
   # networking 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.proxy.default = "http://user:password@proxy:port/";
