@@ -5,14 +5,20 @@
     [ ./hardware-configuration.nix inputs.home-manager.nixosModules.default ];
 
   # system packages
-  environment.systemPackages = with pkgs; [ neovim wget curl nixfmt nom ];
+  environment.systemPackages = with pkgs; [
+    neovim
+    wget
+    curl
+    nixfmt
+    nix-output-monitor
+  ];
 
   # user accounts
   users.users.lucas = {
     isNormalUser = true;
     description = "lucas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ discord spotify google-chrome firefox ];
+    packages = with pkgs; [ ];
     shell = pkgs.nushell;
   };
 

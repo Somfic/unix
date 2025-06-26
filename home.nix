@@ -15,8 +15,8 @@
         "ll" = "ls -l";
         "clear" = "nu";
         "cls" = "nu";
-        "rebuild" =
-          "sudo nixos-rebuild switch --flake ~/dot"; # todo: add nom support?
+        "rebuild-debug" = "sudo nixos-rebuild switch --flake ~/dot";
+        "rebuild" = " nh os switch ~/dot";
         "update" = "sudo nix flake update --flake ~/dot";
         "dev" = "nix-shell --command 'nu'";
       };
@@ -150,7 +150,14 @@
   home.homeDirectory = "/home/lucas";
   home.stateVersion = "25.05";
 
-  home.packages = [ pkgs.jetbrains.idea-ultimate ];
+  home.packages = with pkgs; [
+    discord
+    spotify
+    google-chrome
+    firefox
+    jetbrains.idea-ultimate
+    obs-studio
+  ];
 
   home.file = { };
 
