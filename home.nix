@@ -18,6 +18,7 @@
         "rebuild-debug" = "sudo nixos-rebuild switch --flake ~/dot";
         "rebuild" = " nh os switch ~/dot";
         "update" = "sudo nix flake update --flake ~/dot";
+        "clean" = "nh clean all";
         "dev" = "nix-shell --command 'nu'";
       };
       settings = {
