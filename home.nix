@@ -57,6 +57,8 @@
     gh = { enable = true; };
     vscode = { enable = true; };
     kitty = { enable = true; };
+    waybar = { enable = true; };
+    rofi = { enable = true; };
   };
 
   wayland.windowManager.hyprland = {
@@ -71,14 +73,48 @@
         hide_on_key_press = false;
       };
       monitor = [
-        "default, 1920x1080@60, 0x0, 1"
+        ", preferred, auto, auto"
         "DP-2, preferred, auto-right, 1"
         "DP-3, preferred, auto-left, 1"
       ];
+      decoration = {
+        rounding = 6;
+        blur = {
+          size = 8;
+          passes = 3;
+          new_optimizations = true;
+          ignore_opacity = false;
+        };
+        shadow = {
+          enabled = true;
+          range = 8;
+          color = "000000";
+        };
+      };
+      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
       bind = [
         "$mod, F, exec, firefox"
         "$mod, Q, exec, kitty"
-        "$mod, C, killactive"
+        "$mod, R, exec, rofi -show drun"
+        "$mod, M, exit"
+        "$mod, J, togglesplit,"
+
+        # moving focus
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+
+        # moving windows
+        "$mod SHIFT, left, movewindow, l"
+        "$mod SHIFT, right, movewindow, r"
+        "$mod SHIFT, up, movewindow, u"
+        "$mod SHIFT, down, movewindow, d"
+
+        # closing windows
+        "$mod, mouse:274, killactive"
+        "$mod, X, killactive"
+
         ", Print, exec, grimblast copy area"
       ] ++ (
         # workspaces
@@ -89,7 +125,10 @@
             "$mod, code:1${toString i}, workspace, ${toString ws}"
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]) 9));
+
+      exec-once = [ "kitty & waybar" ];
     };
+
   };
 
   home.username = "lucas";
