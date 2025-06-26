@@ -160,6 +160,7 @@
     jetbrains.idea-ultimate
     obs-studio
     mprocs # running multiple processes
+    chatgpt
   ];
 
   home.file = { };
