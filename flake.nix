@@ -32,7 +32,16 @@
       homeConfigurations = {
         nixos = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            {
+              wayland.windowManager.hyprland = {
+                enable = true;
+                package =
+                  inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+              };
+            }
+          ];
           extraSpecialArgs = { inherit inputs; };
         };
       };
