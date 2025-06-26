@@ -5,7 +5,7 @@
     [ ./hardware-configuration.nix inputs.home-manager.nixosModules.default ];
 
   # system packages
-  environment.systemPackages = with pkgs; [ neovim wget curl nixfmt ];
+  environment.systemPackages = with pkgs; [ neovim wget curl nixfmt nom ];
 
   # user accounts
   users.users.lucas = {
