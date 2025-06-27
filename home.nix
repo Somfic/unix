@@ -20,6 +20,7 @@
         "update" = "sudo nix flake update --flake ~/dot";
         "clean" = "nh clean all --keep-since 7d";
         "dev" = "nix-shell --command 'nu'";
+        "clock" = "termdown -zsf roman";
       };
       settings = {
         show_banner = false;
@@ -160,6 +161,7 @@
     jetbrains.idea-ultimate
     obs-studio
     mprocs # running multiple processes
+    termdown # terminal clock
   ];
 
   home.file = { };
