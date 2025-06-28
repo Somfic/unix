@@ -63,7 +63,7 @@
     settings = {
       "$mod" = "SUPER";
       cursor = {
-        inactive_timeout = 0;
+        inactive_timeout = 10;
         no_hardware_cursors = true;
         hide_on_key_press = false;
       };
@@ -72,10 +72,15 @@
         "DP-2, preferred, auto-right, 1"
         "DP-3, preferred, auto-left, 1"
       ];
+      general = {
+        border_size = 0;
+        gaps_in = 7;
+        gaps_out = 14;
+      };
       decoration = {
-        rounding = 6;
+        rounding = 10;
         blur = {
-          size = 12;
+          size = 10;
           passes = 3;
           brightness = 0.5;
           vibrancy = 0.8;
@@ -88,6 +93,7 @@
           range = 8;
         };
       };
+      windowrulev2 = [ "float,move 10 10,title:^(initialkitty)$" ];
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
       bind = [
         "$mod, R, exec, rofi -show drun -show-icons"
@@ -126,7 +132,9 @@
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]) 9));
 
-      exec-once = [ "kitty -e bash -ic 'fastfetch; exec nu' & waybar" ];
+      exec-once = [
+        "kitty --title initialkitty -e bash -ic 'fastfetch; exec nu' & waybar"
+      ];
     };
   };
 

@@ -140,7 +140,6 @@
       driSupport32Bit = true;
     };
   };
-
   stylix = {
     enable = true;
     image = ./wallpapers/neon1.jpg;
