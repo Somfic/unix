@@ -26,6 +26,11 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users.lucas = import ./home.nix;
+    sharedModules = [{
+      stylix.autoEnable = true;
+      stylix.targets.rofi.enable = false;
+      stylix.targets.vscode.enable = false;
+    }];
   };
 
   # bootloader
@@ -136,6 +141,7 @@
 
   stylix = {
     enable = true;
-    image = "./wallpapers/neon3.jpg";
+    image = ./wallpapers/neon3.jpg;
+    polarity = "dark";
   };
 }

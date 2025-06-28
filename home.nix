@@ -51,7 +51,6 @@
     kitty = {
       enable = true;
       settings = {
-        background_opacity = 0.5;
         window_padding_width = 10;
         font_family = "Fira Code";
       };
@@ -78,7 +77,6 @@
         "DP-2, preferred, auto-right, 1"
         "DP-3, preferred, auto-left, 1"
       ];
-      general = { "col.active_border" = "0x00ff00"; };
       decoration = {
         rounding = 6;
         blur = {
@@ -93,7 +91,6 @@
         shadow = {
           enabled = true;
           range = 8;
-          color = "000000";
         };
       };
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
@@ -102,6 +99,7 @@
         "$mod, F, exec, firefox"
         "$mod, C, exec, code"
         "$mod, S, exec, spotify"
+        "$mod, D, exec, discord"
         "$mod, T, exec, kitty"
         "$mod, J, togglesplit,"
         "$mod, M, exit"
