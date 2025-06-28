@@ -133,4 +133,9 @@
       driSupport32Bit = true;
     };
   };
+
+  stylix = {
+    enable = true;
+    image = "./wallpapers/neon3.jpg";
+  };
 }
