@@ -61,6 +61,21 @@
       gamescopeSession.enable = true;
     };
     gamemode = { enable = true; };
+    spicetify =
+      let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+      in {
+        enable = true;
+
+        enabledExtensions = with spicePkgs.extensions; [
+          adblock
+          hidePodcasts
+          shuffle # shuffle+ (special characters are sanitized out of extension names)
+        ];
+        enabledCustomApps = with spicePkgs.apps; [ newReleases ncsVisualizer ];
+        enabledSnippets = with spicePkgs.snippets; [ rotatingCoverart pointer ];
+
+        theme = spicePkgs.themes.hazy;
+      };
   };
 
   # networking 
@@ -141,7 +156,14 @@
 
   stylix = {
     enable = true;
-    image = ./wallpapers/neon3.jpg;
+    image = ./wallpapers/neon1.jpg;
     polarity = "dark";
+    opacity = {
+      applications = 0.0;
+      desktop = 0.5;
+      terminal = 0.0;
+      popups = 0.0;
+    };
+    targets = { spicetify.enable = false; };
   };
 }

@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  services = { swww = { enable = true; }; };
-
   programs = {
     home-manager = { enable = true; };
     nushell = {
@@ -80,10 +78,10 @@
       decoration = {
         rounding = 6;
         blur = {
-          size = 8;
+          size = 12;
           passes = 3;
-          brightness = 0.6;
-          vibrancy = 0.7;
+          brightness = 0.5;
+          vibrancy = 0.8;
           noise = 0.1;
           new_optimizations = true;
           ignore_opacity = true;
@@ -131,11 +129,8 @@
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]) 9));
 
-      exec-once = [
-        "kitty -e bash -ic 'fastfetch; exec nu' & waybar & swww img ~/Wallpapers/neon3.jpg"
-      ];
+      exec-once = [ "kitty -e bash -ic 'fastfetch; exec nu' & waybar" ];
     };
-
   };
 
   home.username = "lucas";
@@ -144,7 +139,6 @@
 
   home.packages = with pkgs; [
     discord
-    spotify
     google-chrome
     firefox
     jetbrains.idea-ultimate

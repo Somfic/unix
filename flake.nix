@@ -16,10 +16,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix = { url = "github:Gerg-L/spicetify-nix"; };
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, stylix
-    , ... }@inputs:
+    , spicetify-nix }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -33,6 +34,7 @@
             ./configuration.nix
             inputs.home-manager.nixosModules.default
             stylix.nixosModules.stylix
+            spicetify-nix.nixosModules.spicetify
           ];
         };
       };
