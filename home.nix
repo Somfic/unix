@@ -48,10 +48,7 @@
     vscode = { enable = true; };
     kitty = {
       enable = true;
-      settings = {
-        window_padding_width = 10;
-        font_family = "Fira Code";
-      };
+      settings = { window_padding_width = 10; };
     };
     waybar = { enable = true; };
     rofi = { enable = true; };
@@ -145,17 +142,7 @@
     obs-studio
     mprocs # running multiple processes
     termdown # terminal clock
-    rose-pine-hyprcursor
   ];
-
-  home.file = { };
-
-  home.sessionVariables = {
-    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
-    HYPRCURSOR_SIZE = "24";
-    XCURSOR_THEME = "rose-pine-hyprcursor";
-    XCURSOR_SIZE = "24";
-  };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
