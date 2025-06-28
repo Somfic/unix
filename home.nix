@@ -13,8 +13,7 @@
         ".." = "z ..";
         "g" = "git";
         "ll" = "ls -l";
-        "clear" = "nu";
-        "cls" = "nu";
+        "cls" = "clear";
         "reload-debug" = "sudo nixos-rebuild switch --flake ~/dot";
         "reload" = "nh os switch ~/dot";
         "update" = "sudo nix flake update --flake ~/dot";
@@ -22,23 +21,12 @@
         "dev" = "nix-shell --command 'nu'";
         "clock" = "termdown -zsf roman";
       };
-      settings = {
-        show_banner = false;
-        completions.external = {
-          enable = true;
-          max_results = 200;
-        };
-      };
-      extraConfig = ''
-        # startup
-        clear
-        fastfetch
-      '';
+      settings = { show_banner = false; };
     };
-    carapace = {
-      enable = true;
-      enableNushellIntegration = true;
-    };
+    # carapace = {
+    #   enable = true;
+    #   enableNushellIntegration = true;
+    # };
     starship = {
       enable = true;
       settings = { add_newline = true; };
@@ -144,7 +132,9 @@
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]) 9));
 
-      exec-once = [ "kitty & waybar & swww img ~/Wallpapers/neon3.jpg" ];
+      exec-once = [
+        "kitty -e bash -ic 'fastfetch; exec nu' & waybar & swww img ~/Wallpapers/neon3.jpg"
+      ];
     };
 
   };
@@ -162,11 +152,17 @@
     obs-studio
     mprocs # running multiple processes
     termdown # terminal clock
+    rose-pine-hyprcursor
   ];
 
   home.file = { };
 
-  home.sessionVariables = { };
+  home.sessionVariables = {
+    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+    HYPRCURSOR_SIZE = "24";
+    XCURSOR_THEME = "rose-pine-hyprcursor";
+    XCURSOR_SIZE = "24";
+  };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
