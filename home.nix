@@ -78,13 +78,13 @@
         gaps_out = 14;
       };
       decoration = {
-        rounding = 10;
+        rounding = 15;
         blur = {
-          size = 10;
+          size = 8;
           passes = 3;
-          brightness = 0.5;
-          vibrancy = 0.8;
-          noise = 0.1;
+          brightness = 0.45;
+          vibrancy = 1.0;
+          noise = 5.0e-2;
           new_optimizations = true;
           ignore_opacity = true;
         };
@@ -97,6 +97,7 @@
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
       bind = [
         "$mod, R, exec, rofi -show drun -show-icons"
+        "$mod, V, togglefloating"
         "$mod, F, exec, firefox"
         "$mod, C, exec, code"
         "$mod, S, exec, spotify"
