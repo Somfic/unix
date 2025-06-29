@@ -17,7 +17,7 @@
   users.users.lucas = {
     isNormalUser = true;
     description = "lucas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
     shell = pkgs.nushell;
   };
@@ -47,6 +47,10 @@
       useOSProber = true;
     };
   };
+
+  # docker
+  virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   # hostname  
   networking.hostName = "nixos";
