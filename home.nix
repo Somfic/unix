@@ -53,6 +53,7 @@
     waybar = { enable = true; };
     rofi = { enable = true; };
     direnv = { enable = true; };
+    lazydocker = { enable = true; };
   };
 
   wayland.windowManager.hyprland = {
@@ -89,7 +90,7 @@
           ignore_opacity = true;
         };
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 8;
         };
       };
@@ -151,6 +152,7 @@
     obs-studio
     mprocs # running multiple processes
     termdown # terminal clock
+    just # running commands
   ];
 
   nixpkgs.config.allowUnfree = true;
